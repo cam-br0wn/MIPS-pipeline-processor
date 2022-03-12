@@ -5,12 +5,12 @@ module MEM2WB (clk, rst, WB_EN_IN, MEM_R_EN_IN, ALUResIn, memReadValIn, destIn,
   input clk, rst;
   // TO BE REGISTERED FOR ID STAGE
   input WB_EN_IN, MEM_R_EN_IN;
-  input [`REG_FILE_ADDR_LEN-1:0] destIn;
-  input [`WORD_LEN-1:0] ALUResIn, memReadValIn;
+  input [5-1:0] destIn;
+  input [32-1:0] ALUResIn, memReadValIn;
   // REGISTERED VALUES FOR ID STAGE
   output reg WB_EN, MEM_R_EN;
-  output reg [`REG_FILE_ADDR_LEN-1:0] dest;
-  output reg [`WORD_LEN-1:0] ALURes, memReadVal;
+  output reg [5-1:0] dest;
+  output reg [32-1:0] ALURes, memReadVal;
 
   always @ (posedge clk) begin
     if (rst) begin

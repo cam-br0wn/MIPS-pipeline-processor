@@ -2,12 +2,12 @@
 
 module IFStage (clk, rst, brTaken, brOffset, freeze, PC, instruction);
   input clk, rst, brTaken, freeze;
-  input [`WORD_LEN-1:0] brOffset;
-  output [`WORD_LEN-1:0] PC, instruction;
+  input [32-1:0] brOffset;
+  output [32-1:0] PC, instruction;
 
-  wire [`WORD_LEN-1:0] adderIn1, adderOut, brOffserTimes4;
+  wire [32-1:0] adderIn1, adderOut, brOffserTimes4;
 
-  mux #(.LENGTH(`WORD_LEN)) adderInput (
+  mux #(.LENGTH(32)) adderInput (
     .in1(32'd4),
     .in2(brOffserTimes4),
     .sel(brTaken),

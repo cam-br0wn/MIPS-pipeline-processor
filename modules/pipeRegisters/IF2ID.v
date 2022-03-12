@@ -2,8 +2,8 @@
 
 module IF2ID (clk, rst, flush, freeze, PCIn, instructionIn, PC, instruction);
   input clk, rst, flush, freeze;
-  input [`WORD_LEN-1:0] PCIn, instructionIn;
-  output reg [`WORD_LEN-1:0] PC, instruction;
+  input [32-1:0] PCIn, instructionIn;
+  output reg [32-1:0] PC, instruction;
 
   always @ (posedge clk) begin
     if (rst) begin

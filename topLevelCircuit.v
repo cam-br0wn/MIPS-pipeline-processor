@@ -2,18 +2,18 @@
 
 module MIPS_Processor (input CLOCK_50, input rst, input forward_EN);
 	wire clock = CLOCK_50;
-	wire [`WORD_LEN-1:0] PC_IF, PC_ID, PC_EXE, PC_MEM;
-	wire [`WORD_LEN-1:0] inst_IF, inst_ID;
-	wire [`WORD_LEN-1:0] reg1_ID, reg2_ID, ST_value_EXE, ST_value_EXE2MEM, ST_value_MEM;
-	wire [`WORD_LEN-1:0] val1_ID, val1_EXE;
-	wire [`WORD_LEN-1:0] val2_ID, val2_EXE;
-	wire [`WORD_LEN-1:0] ALURes_EXE, ALURes_MEM, ALURes_WB;
-	wire [`WORD_LEN-1:0] dataMem_out_MEM, dataMem_out_WB;
-	wire [`WORD_LEN-1:0] WB_result;
-	wire [`REG_FILE_ADDR_LEN-1:0] dest_EXE, dest_MEM, dest_WB; // dest_ID = instruction[25:21] thus nothing declared
-	wire [`REG_FILE_ADDR_LEN-1:0] src1_ID, src2_regFile_ID, src2_forw_ID, src2_forw_EXE, src1_forw_EXE;
-	wire [`EXE_CMD_LEN-1:0] EXE_CMD_ID, EXE_CMD_EXE;
-	wire [`FORW_SEL_LEN-1:0] val1_sel, val2_sel, ST_val_sel;
+	wire [32-1:0] PC_IF, PC_ID, PC_EXE, PC_MEM;
+	wire [32-1:0] inst_IF, inst_ID;
+	wire [32-1:0] reg1_ID, reg2_ID, ST_value_EXE, ST_value_EXE2MEM, ST_value_MEM;
+	wire [32-1:0] val1_ID, val1_EXE;
+	wire [32-1:0] val2_ID, val2_EXE;
+	wire [32-1:0] ALURes_EXE, ALURes_MEM, ALURes_WB;
+	wire [32-1:0] dataMem_out_MEM, dataMem_out_WB;
+	wire [32-1:0] WB_result;
+	wire [5-1:0] dest_EXE, dest_MEM, dest_WB; // dest_ID = instruction[25:21] thus nothing declared
+	wire [5-1:0] src1_ID, src2_regFile_ID, src2_forw_ID, src2_forw_EXE, src1_forw_EXE;
+	wire [4-1:0] EXE_CMD_ID, EXE_CMD_EXE;
+	wire [2-1:0] val1_sel, val2_sel, ST_val_sel;
 	wire [1:0] branch_comm;
 	wire Br_Taken_ID, IF_Flush, Br_Taken_EXE;
 	wire MEM_R_EN_ID, MEM_R_EN_EXE, MEM_R_EN_MEM, MEM_R_EN_WB;

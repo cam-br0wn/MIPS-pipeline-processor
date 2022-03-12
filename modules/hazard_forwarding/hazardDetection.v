@@ -1,8 +1,8 @@
 `include "defines.v"
 
 module hazard_detection(forward_EN, is_imm, ST_or_BNE, src1_ID, src2_ID, dest_EXE, WB_EN_EXE, dest_MEM, WB_EN_MEM, MEM_R_EN_EXE, branch_comm, hazard_detected);
-  input [`REG_FILE_ADDR_LEN-1:0] src1_ID, src2_ID;
-  input [`REG_FILE_ADDR_LEN-1:0] dest_EXE, dest_MEM;
+  input [5-1:0] src1_ID, src2_ID;
+  input [5-1:0] dest_EXE, dest_MEM;
   input [1:0] branch_comm;
   input forward_EN, WB_EN_EXE, WB_EN_MEM, is_imm, ST_or_BNE, MEM_R_EN_EXE;
   output hazard_detected;

@@ -2,11 +2,11 @@
 
 module instructionMem (rst, addr, instruction);
   input rst;
-  input [`WORD_LEN-1:0] addr;
-  output [`WORD_LEN-1:0] instruction;
+  input [32-1:0] addr;
+  output [32-1:0] instruction;
 
-  wire [$clog2(`INSTR_MEM_SIZE)-1:0] address = addr[$clog2(`INSTR_MEM_SIZE)-1:0];
-  reg [`MEM_CELL_SIZE-1:0] instMem [0:`INSTR_MEM_SIZE-1];
+  wire [$clog2(1024)-1:0] address = addr[$clog2(1024)-1:0];
+  reg [8-1:0] instMem [0:1024-1];
 
   always @ (*) begin
   	if (rst) begin

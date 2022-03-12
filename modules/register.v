@@ -2,8 +2,8 @@
 
 module register (clk, rst, writeEn, regIn, regOut);
   input clk, rst, writeEn;
-  input [`WORD_LEN-1:0] regIn;
-  output reg [`WORD_LEN-1:0] regOut;
+  input [32-1:0] regIn;
+  output reg [32-1:0] regOut;
 
   always @ (posedge clk) begin
     if (rst == 1) regOut <= 0;

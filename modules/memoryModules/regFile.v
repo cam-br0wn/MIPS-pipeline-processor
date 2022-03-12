@@ -2,16 +2,16 @@
 
 module regFile (clk, rst, src1, src2, dest, writeVal, writeEn, reg1, reg2);
   input clk, rst, writeEn;
-  input [`REG_FILE_ADDR_LEN-1:0] src1, src2, dest;
-  input [`WORD_LEN-1:0] writeVal;
-  output [`WORD_LEN-1:0] reg1, reg2;
+  input [5-1:0] src1, src2, dest;
+  input [32-1:0] writeVal;
+  output [32-1:0] reg1, reg2;
 
-  reg [`WORD_LEN-1:0] regMem [0:`REG_FILE_SIZE-1];
+  reg [32-1:0] regMem [0:32-1];
   integer i;
 
   always @ (negedge clk) begin
     if (rst) begin
-      for (i = 0; i < `WORD_LEN; i = i + 1)
+      for (i = 0; i < 32; i = i + 1)
         regMem[i] <= 0;
 	    end
 

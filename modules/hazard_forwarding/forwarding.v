@@ -1,10 +1,10 @@
 `include "defines.v"
 
 module forwarding_EXE (src1_EXE, src2_EXE, ST_src_EXE, dest_MEM, dest_WB, WB_EN_MEM, WB_EN_WB, val1_sel, val2_sel, ST_val_sel);
-  input [`REG_FILE_ADDR_LEN-1:0] src1_EXE, src2_EXE, ST_src_EXE;
-  input [`REG_FILE_ADDR_LEN-1:0] dest_MEM, dest_WB;
+  input [5-1:0] src1_EXE, src2_EXE, ST_src_EXE;
+  input [5-1:0] dest_MEM, dest_WB;
   input WB_EN_MEM, WB_EN_WB;
-  output reg [`FORW_SEL_LEN-1:0] val1_sel, val2_sel, ST_val_sel;
+  output reg [2-1:0] val1_sel, val2_sel, ST_val_sel;
 
   always @ ( * ) begin
     // initializing sel signals to 0
